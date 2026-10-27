@@ -175,10 +175,16 @@ export default function Home() {
       </header>
 
       <nav className="flex gap-2 overflow-x-auto p-4">
-        {["課題一覧", "完登記録", "ランキング"].map((item) => (
+        {["課題一覧", "完登記録", "ランキング", "プロフィール"].map((item) => (
           <button
             key={item}
-            onClick={() => setTab(item)}
+            onClick={() => {
+  if (item === "プロフィール") {
+    window.location.href = "/profile";
+  } else {
+    setTab(item);
+  }
+}}
             className={`shrink-0 rounded-full px-4 py-2 font-bold ${
               tab === item
                 ? "bg-cyan-400 text-slate-950"
